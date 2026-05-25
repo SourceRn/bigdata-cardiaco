@@ -47,7 +47,7 @@ rf_model.fit(X_train, y_train)
 y_pred_rf = rf_model.predict(X_test)
 
 #MOSTRAMOS LOS RESULTADOS DE LA EVALUACION DE LOS MODELOS
-print("/n === REGRESION LOGISTICA ===")
+print("\n === REGRESION LOGISTICA ===")
 print("Accuracy: ",
        accuracy_score(y_test, y_pred_log))
 print("Precisión: ",
@@ -84,7 +84,7 @@ print(classification_report(
     y_pred_rf
 ))
 
-#MOSTRAMOS LA MATRIZ DE CONFUSION PARA EL MODELO DE REGRESION LOGISTICA
+#GUARDAMOS LA MATRIZ DE CONFUSION PARA EL MODELO DE REGRESION LOGISTICA
 cm_log = confusion_matrix(
     y_test,
     y_pred_log
@@ -98,8 +98,10 @@ disp_log.plot()
 
 plt.title("Matriz de Confusion - Regresion Logistica")
 
-plt.show()
-#MOSTRAMOS LA MATRIZ DE CONFUSION PARA EL MODELO DE RANDOM FOREST
+plt.savefig("confusion_matrix_logistica.png", bbox_inches="tight")
+plt.close()
+
+#GUARDAMOS LA MATRIZ DE CONFUSION PARA EL MODELO DE RANDOM FOREST
 cm_rf = confusion_matrix(
     y_test,
     y_pred_rf
@@ -113,6 +115,7 @@ disp_rf.plot()
 
 plt.title("Matriz de Confusion - Random Forest")
 
-plt.show()
+plt.savefig("confusion_matrix_rf.png", bbox_inches="tight")
+plt.close()
 
 #DEVELOPER AARON YAEL VAZQUEZ RUIZ | 22151154
